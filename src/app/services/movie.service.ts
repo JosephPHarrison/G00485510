@@ -14,7 +14,7 @@ export class MovieService {
   // Builds the movie list from the trending page on TMDB.
   // Request url built by inserting the API key from environment.
   getTrending() {
-    const url = 'https://api.themoviedb.org/3/trending/movie/day?api_key=${environment.tmdbApiKey}';
+    const url = `https://api.themoviedb.org/3/trending/movie/day?api_key=${environment.tmdbApiKey}`;
     return this.http.get(url);
   }
 

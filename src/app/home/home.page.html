@@ -1,20 +1,37 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      The Movie Vault
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <!-- ID sub-title -->
+  <div class="student-info">
+    <p>Joseph Harrison &middot; G00485510</p>
   </div>
+
+  <!-- Heading above the list -->
+  <h2 class="section-title">Today's Trending Movies</h2>
+
+  <!-- Repeats the block once for each element of the movies array -->
+  @for (movie of movies; track movie.id) {
+  <ion-card>
+
+    <!-- Poster image acquired via image URL to TMDB -->
+    <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" [alt]="movie.title" />
+
+    <ion-card-header>
+      <ion-card-title>{{ movie.title }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      {{ movie.overview }}
+    </ion-card-content>
+
+  </ion-card>
+  }
+
 </ion-content>
