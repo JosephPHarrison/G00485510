@@ -18,4 +18,10 @@ export class MovieService {
     return this.http.get(url);
   }
 
+  searchMovies(term: string) {
+    const query = encodeURIComponent(term);
+    const url = `https://api.themoviedb.org/3/search/movie?query=${query}&api_key=${environment.tmdbApiKey}`;
+    return this.http.get(url);
+  }
+
 }

@@ -13,8 +13,18 @@
     <p>Joseph Harrison &middot; G00485510</p>
   </div>
 
+  <!-- Search box, bound to searchTerm so typing updates the property and fires when the user submits -->
+  <ion-searchbar
+    [(ngModel)]="searchTerm"
+    (search)="search()"
+    placeholder="Search for a movie">
+  </ion-searchbar>
+
+  <!-- Search button, runs search() when clicked -->
+  <ion-button (click)="search()" expand="block">SEARCH</ion-button>
+
   <!-- Heading above the list -->
-  <h2 class="section-title">Today's Trending Movies</h2>
+  <h2 class="section-title">{{ heading }}</h2>
 
   <!-- Repeats the block once for each element of the movies array -->
   @for (movie of movies; track movie.id) {
