@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardTitle, IonCardContent, } from '@ionic/angular/standalone';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, } from '@angular/router';
 import { MovieService } from '../services/movie.service';
 import { Movie } from '../models/movie.model';
 import { CastMember, CrewMember } from '../models/credits.model';
@@ -26,7 +26,7 @@ export class MovieDetailsPage implements OnInit {
   crew: CrewMember[] = [];
 
   // ActivatedRoute reads the movie ID fro mthe URL, MovieServices fetches the data
-  constructor(private route: ActivatedRoute, private movieService: MovieService) {   
+  constructor(private route: ActivatedRoute, private movieService: MovieService, private router: Router) {   
   }
 
   ngOnInit() {
@@ -42,6 +42,11 @@ export class MovieDetailsPage implements OnInit {
         this.crew = response.credits.crew;
       });
     }
+  }
+
+  // Navigates to the Person Details page for the selected cast or crew member
+  openPerson(id: number) {
+    this.router.navigate(['/person-details', id]);
   }
 
 }
