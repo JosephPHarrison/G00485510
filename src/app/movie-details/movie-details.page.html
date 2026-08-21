@@ -1,13 +1,52 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>movie-details</ion-title>
+    <ion-title>Movie Details</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">movie-details</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+  <!-- Conditional guarantees content only renders once the data has arrived -->
+  @if (movie) {
+
+  <!-- Movie title -->
+  <h1 class="movie-title">{{ movie.title }}</h1>
+
+  <!-- Movie overview -->
+  <p class="movie-overview">{{ movie.overview }}</p>
+
+  <!-- Cast section -->
+  <h2 class="section-heading">Cast</h2>
+  @for (member of cast; track member.id) {
+
+  <ion-card>
+    <img [src]="'https://image.tmdb.org/t/p/w185' + member.profile_path" [alt]="member.name" />
+    <ion-card-header>
+      <ion-card-title>
+        {{ member.name }}
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{ member.character }}
+    </ion-card-content>
+  </ion-card>
+  }
+
+  <h2 class="section-heading">Crew</h2>
+  @for (member of crew; track member.id) {
+  <ion-card>
+    <img [src]="'https://image.tmdb.org/t/p/w185' + member.profile_path" [alt]="member.name" />
+    <ion-card-header>
+      <ion-card-title>
+        {{ member.name }}
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{ member.job }}
+    </ion-card-content>
+  </ion-card>
+
+  }
+
+  }
 </ion-content>
