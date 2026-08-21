@@ -3,6 +3,7 @@ import { IonHeader, IonToolbar, IonTitle, IonContent, IonCard, IonCardHeader, Io
 import { MovieService } from '../services/movie.service';
 import { Movie } from '../models/movie.model';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -22,7 +23,7 @@ export class HomePage implements OnInit {
   heading: string = "Today's Trending Movies";
 
   // MovieService injected so the page can request data
-  constructor(private movieService: MovieService) {}
+  constructor(private movieService: MovieService, private router: Router) {}
 
   // Runs automatically when the page loads. Fetches initial data.
   ngOnInit() {
@@ -48,6 +49,11 @@ export class HomePage implements OnInit {
         this.movies = response.results;
       });
     }
+  }
+
+  // Navigates to the Movie Details page for the selected movie by passing its ID to the url
+  openMovie(id: number) {
+    this.router.navigate(['/movie-details', id]);
   }
 
 }

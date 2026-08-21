@@ -28,7 +28,7 @@
 
   <!-- Repeats the block once for each element of the movies array -->
   @for (movie of movies; track movie.id) {
-  <ion-card>
+  <ion-card button (click)="openMovie(movie.id)">
 
     <!-- Poster image acquired via image URL to TMDB -->
     <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" [alt]="movie.title" />
