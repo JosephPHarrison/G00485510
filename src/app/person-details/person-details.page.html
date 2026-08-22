@@ -1,13 +1,42 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>person-details</ion-title>
+    <ion-title>Cast & Crew Details</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">person-details</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+  <!-- Conditional guarantees content only renders once the data has arrived -->
+  @if (person) {
+
+  <!-- Profile photo or 'No image' placeholder if none available -->
+  @if (person.profile_path) {
+  <img [src]="'https://image.tmdb.org/t/p/w185' + person.profile_path" [alt]="person.name" />
+  }@else {
+  <p class="no-image">No image</p>
+  }
+
+  <!-- Name -->
+  <h1 class="person-name">{{ person.name }}</h1>
+
+  <!-- Date of birth, only shows if present -->
+  @if (person.birthday) {
+    <p class="person-info"><strong>Born:</strong> {{ person.birthday }}</p>
+  }
+
+  <!-- Date of death, only shows if present -->
+  @if (person.deathday) {
+    <p class="person-info"><strong>Died:</strong> {{ person.deathday }}</p>
+  }
+
+  <!-- Also known as, only shows if the array holds any data -->
+  @if (person.also_known_as && person.also_known_as > 0) {
+    <p class="person-info"><strong>Aslo knwon as:</strong> {{ person.also_known_as.join(', ') }}</p>
+  }
+
+  <!-- Biography -->
+  <p class="person-bio">{{ person.biography }}</p>
+
+  }
+
 </ion-content>

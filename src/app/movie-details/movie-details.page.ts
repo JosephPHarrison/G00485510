@@ -26,7 +26,7 @@ export class MovieDetailsPage implements OnInit {
   crew: CrewMember[] = [];
 
   // ActivatedRoute reads the movie ID fro mthe URL, MovieServices fetches the data
-  constructor(private route: ActivatedRoute, private movieService: MovieService, private router: Router) {   
+  constructor(private route: ActivatedRoute, private movieService: MovieService, private router: Router) {
   }
 
   ngOnInit() {
