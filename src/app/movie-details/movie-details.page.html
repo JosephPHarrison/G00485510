@@ -15,6 +15,15 @@
   <!-- Movie overview -->
   <p class="movie-overview">{{ movie.overview }}</p>
 
+  <!-- Button that toggles a movie in and out of the favourites list, label reflects current state -->
+  <ion-button (click)="toggleFavourite()" expand="block">
+    @if (isFavourited) {
+      Remove From Favourites
+    } @else {
+      Add To Favourites
+    }
+  </ion-button>
+
   <!-- Cast section -->
   <h2 class="section-heading">Cast</h2>
   @for (member of cast; track member.id) {
