@@ -37,23 +37,24 @@
 
   <!-- Other movies this individual has featured in / worked on -->
   <h2 class="section-heading">Other Movies</h2>
-  @for (movie of movies; track movie.id) {
-  <ion-card button (click)="openMovie(movie.id)">
+  <div class="card-grid">
+    @for (movie of movies; track movie.id) {
+    <ion-card button (click)="openMovie(movie.id)">
 
-    <!-- Poster, shows 'No Image' placeholder if non available -->
-    @if (movie.poster_path) {
-    <img [src]="'https://image.tmdb.org/t/p/w185' + movie.poster_path" [alt]="movie.title" />
-    } @else {
-    <p class="no-image">No image</p>
+      <!-- Poster, shows 'No Image' placeholder if non available -->
+      @if (movie.poster_path) {
+      <img [src]="'https://image.tmdb.org/t/p/w185' + movie.poster_path" [alt]="movie.title" />
+      } @else {
+      <p class="no-image">No image</p>
+      }
+
+      <ion-card-header>
+        <ion-card-title>{{ movie.title }}</ion-card-title>
+      </ion-card-header>
+
+    </ion-card>
     }
-
-    <ion-card-header>
-      <ion-card-title>{{ movie.title }}</ion-card-title>
-    </ion-card-header>
-
-  </ion-card>
-  }
-
+  </div>
   }
 
 </ion-content>

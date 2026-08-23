@@ -24,48 +24,51 @@
 
   <!-- Cast section -->
   <h2 class="section-heading">Cast</h2>
-  @for (member of cast; track member.id) {
+  <div class="card-grid">
+    @for (member of cast; track member.id) {
 
-  <ion-card button (click)="openPerson(member.id)">
+    <ion-card button (click)="openPerson(member.id)">
 
-    @if (member.profile_path) {
-    <img [src]="'https://image.tmdb.org/t/p/w185' + member.profile_path" [alt]="member.name" />
-    } @else {
-    <p class="no-image">No image</p>
+      @if (member.profile_path) {
+      <img [src]="'https://image.tmdb.org/t/p/w185' + member.profile_path" [alt]="member.name" />
+      } @else {
+      <p class="no-image">No image</p>
+      }
+
+      <ion-card-header>
+        <ion-card-title>
+          {{ member.name }}
+        </ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        {{ member.character }}
+      </ion-card-content>
+
+    </ion-card>
     }
-
-    <ion-card-header>
-      <ion-card-title>
-        {{ member.name }}
-      </ion-card-title>
-    </ion-card-header>
-
-    <ion-card-content>
-      {{ member.character }}
-    </ion-card-content>
-
-  </ion-card>
-  }
+  </div>
 
   <h2 class="section-heading">Crew</h2>
-  @for (member of crew; track member.id) {
+  <div class="card-grid">
+    @for (member of crew; track member.id) {
 
-  <ion-card button (click)="openPerson(member.id)">
-    <img [src]="'https://image.tmdb.org/t/p/w185' + member.profile_path" [alt]="member.name" />
+    <ion-card button (click)="openPerson(member.id)">
+      <img [src]="'https://image.tmdb.org/t/p/w185' + member.profile_path" [alt]="member.name" />
 
-    <ion-card-header>
-      <ion-card-title>
-        {{ member.name }}
-      </ion-card-title>
-    </ion-card-header>
+      <ion-card-header>
+        <ion-card-title>
+          {{ member.name }}
+        </ion-card-title>
+      </ion-card-header>
 
-    <ion-card-content>
-      {{ member.job }}
-    </ion-card-content>
+      <ion-card-content>
+        {{ member.job }}
+      </ion-card-content>
 
-  </ion-card>
+    </ion-card>
 
-  }
-
+    }
+  </div>
   }
 </ion-content>

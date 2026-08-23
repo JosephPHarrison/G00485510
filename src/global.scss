@@ -39,3 +39,17 @@
 ion-content::part(scroll) {
     padding: 16px;
 }
+
+/* Lays the movie ion cards out on to a responsive grid.
+   auto-fill and minmax allows the browse rto fill as many columns
+   as will hold at least 320px each. */
+   .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 16px;
+  }
+  
+  /* Resets card margins so the grid gap controls spacings */
+  .card-grid ion-card {
+    margin: 0;
+  }

@@ -20,7 +20,7 @@
   <h2 class="section-title">{{ heading }}</h2>
 
   <!-- Repeats the block once for each element of the movies array -->
-  <div class="movie-grid">
+  <div class="card-grid">
     @for (movie of movies; track movie.id) {
     <ion-card button (click)="openMovie(movie.id)">
 
@@ -39,5 +39,5 @@
     }
 
   </div>
-  
+
 </ion-content>

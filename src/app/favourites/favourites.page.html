@@ -9,24 +9,26 @@
   <p class="empty-message">You haven't added any favourites yet.</p>
   }
 
-  @for (movie of favourites; track movie.id) {
-  <ion-card>
+  <div class="card-grid">
+    @for (movie of favourites; track movie.id) {
+    <ion-card>
 
-    <!--  SHows movie poster or 'No image' placeholder if none available -->
-    @if (movie.poster_path) {
-    <img [src]="'https://image.tmdb.org/t/p/w185' + movie.poster_path" [alt]="movie.title" />
-    } @else {
-    <p class="no-image">No image</p>
+      <!--  SHows movie poster or 'No image' placeholder if none available -->
+      @if (movie.poster_path) {
+      <img [src]="'https://image.tmdb.org/t/p/w185' + movie.poster_path" [alt]="movie.title" />
+      } @else {
+      <p class="no-image">No image</p>
+      }
+
+      <ion-card-header>
+        <ion-card-title>{{ movie.title }}</ion-card-title>
+      </ion-card-header>
+
+      <!-- Detials button, takes the user to the details page for selected movie-->
+      <ion-button (click)="openMovie(movie.id)" expand="block">DETAILS</ion-button>
+
+    </ion-card>
     }
-
-    <ion-card-header>
-      <ion-card-title>{{ movie.title }}</ion-card-title>
-    </ion-card-header>
-
-    <!-- Detials button, takes the user to the details page for selected movie-->
-    <ion-button (click)="openMovie(movie.id)" expand="block">DETAILS</ion-button>
-
-  </ion-card>
-  }
-
+  </div>
+  
 </ion-content>
