@@ -1,6 +1,16 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="openHome()">
+        <ion-icon name="home"></ion-icon>
+      </ion-button>
+    </ion-buttons>
     <ion-title>Movie Details</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="openFavourites()">
+        <ion-icon name="heart"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -18,9 +28,9 @@
   <!-- Button that toggles a movie in and out of the favourites list, label reflects current state -->
   <ion-button (click)="toggleFavourite()" expand="block">
     @if (isFavourited) {
-      Remove From Favourites
+    Remove From Favourites
     } @else {
-      Add To Favourites
+    Add To Favourites
     }
   </ion-button>
 

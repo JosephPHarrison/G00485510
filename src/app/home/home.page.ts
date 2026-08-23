@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonSearchbar, IonButton } from '@ionic/angular/standalone';
+import { IonHeader, IonToolbar, IonTitle, IonContent, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonSearchbar, IonButton, IonButtons, IonIcon } from '@ionic/angular/standalone';
 import { MovieService } from '../services/movie.service';
 import { Movie } from '../models/movie.model';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { addIcons } from 'ionicons';
+import { heart } from 'ionicons/icons';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonSearchbar, IonButton, FormsModule],
+  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonSearchbar, IonButton, FormsModule, IonButtons, IonIcon],
 })
 export class HomePage implements OnInit {
   
@@ -23,7 +25,9 @@ export class HomePage implements OnInit {
   heading: string = "Today's Trending Movies";
 
   // MovieService injected so the page can request data
-  constructor(private movieService: MovieService, private router: Router) {}
+  constructor(private movieService: MovieService, private router: Router) {
+    addIcons({ heart });
+  }
 
   // Runs automatically when the page loads. Fetches initial data.
   ngOnInit() {
@@ -54,6 +58,11 @@ export class HomePage implements OnInit {
   // Navigates to the Movie Details page for the selected movie by passing its ID to the url
   openMovie(id: number) {
     this.router.navigate(['/movie-details', id]);
+  }
+
+  // Opens the favourites page
+  openFavourites() {
+    this.router.navigate(['/favourites']);
   }
 
 }
