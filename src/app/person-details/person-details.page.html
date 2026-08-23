@@ -1,7 +1,8 @@
-<app-navbar title ="Cast & Crew Details"></app-navbar>
+<ion-header [translucent]="true">
+  <app-navbar title="Cast & Crew Details"></app-navbar>
+</ion-header>
 
-
-<ion-content [fullscreen]="true">
+<ion-content>
 
   <!-- Conditional guarantees content only renders once the data has arrived -->
   @if (person) {
@@ -27,7 +28,7 @@
   }
 
   <!-- Also known as, only shows if the array holds any data -->
-  @if (person.also_known_as && person.also_known_as > 0) {
+  @if (person.also_known_as && person.also_known_as.length > 0) {
   <p class="person-info"><strong>Also knwon as:</strong> {{ person.also_known_as.join(', ') }}</p>
   }
 

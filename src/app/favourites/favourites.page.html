@@ -1,6 +1,8 @@
-<app-navbar title ="Favourites"></app-navbar>
+<ion-header [translucent]="true">
+  <app-navbar title="Favourites"></app-navbar>
+</ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content>
 
   <!-- Message shown if no movies have been added to the favourites lsit -->
   @if (favourites.length === 0) {

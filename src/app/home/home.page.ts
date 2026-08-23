@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IonContent, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonSearchbar, IonButton } from '@ionic/angular/standalone';
+import { IonContent, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonSearchbar, IonButton, IonHeader } from '@ionic/angular/standalone';
 import { MovieService } from '../services/movie.service';
 import { Movie } from '../models/movie.model';
 import { FormsModule } from '@angular/forms';
@@ -10,7 +10,7 @@ import { NavbarComponent } from '../components/navbar/navbar.component';
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  imports: [IonContent, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonSearchbar, IonButton, FormsModule, NavbarComponent],
+  imports: [IonContent, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonSearchbar, IonButton, FormsModule, NavbarComponent, IonHeader],
 })
 export class HomePage implements OnInit {
   

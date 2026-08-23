@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonButton } from '@ionic/angular/standalone';
+import { IonContent, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonButton, IonHeader } from '@ionic/angular/standalone';
 import { ActivatedRoute, Router, } from '@angular/router';
 import { MovieService } from '../services/movie.service';
 import { CastMember, CrewMember } from '../models/credits.model';
@@ -14,7 +14,7 @@ import { NavbarComponent } from '../components/navbar/navbar.component';
   templateUrl: './movie-details.page.html',
   styleUrls: ['./movie-details.page.scss'],
   standalone: true,
-  imports: [IonContent,  CommonModule, FormsModule, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonButton, NavbarComponent]
+  imports: [IonContent,  CommonModule, FormsModule, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonButton, NavbarComponent, IonHeader]
 })
 export class MovieDetailsPage implements OnInit {
 

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonButton, IonCard, IonCardHeader, IonCardTitle } from '@ionic/angular/standalone';
+import { IonContent, IonButton, IonCard, IonCardHeader, IonCardTitle, IonHeader } from '@ionic/angular/standalone';
 import { Router } from '@angular/router';
 import { FavouritesService } from '../services/favourites.service';
 import { Movie } from '../models/movie.model';
@@ -12,7 +12,7 @@ import { NavbarComponent } from '../components/navbar/navbar.component';
   templateUrl: './favourites.page.html',
   styleUrls: ['./favourites.page.scss'],
   standalone: true,
-  imports: [IonContent, CommonModule, FormsModule, IonButton, IonCard, IonCardHeader, IonCardTitle, NavbarComponent]
+  imports: [IonContent, CommonModule, FormsModule, IonButton, IonCard, IonCardHeader, IonCardTitle, NavbarComponent, IonHeader]
 })
 export class FavouritesPage {
 

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonButtons, IonButton, IonIcon } from '@ionic/angular/standalone';
+import { IonToolbar, IonTitle, IonButtons, IonButton, IonIcon } from '@ionic/angular/standalone';
 import { Router } from '@angular/router';
 import { addIcons } from 'ionicons';
 import { home, heart } from 'ionicons/icons';
@@ -9,7 +9,7 @@ import { home, heart } from 'ionicons/icons';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
   standalone: true,
-  imports: [IonHeader, IonToolbar, IonTitle, IonButtons, IonButton, IonIcon],
+  imports: [IonToolbar, IonTitle, IonButtons, IonButton, IonIcon],
 })
 
 export class NavbarComponent {

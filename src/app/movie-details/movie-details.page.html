@@ -1,6 +1,8 @@
-<app-navbar title ="Movie Details"></app-navbar>
+<ion-header [translucent]="true">
+  <app-navbar title="Movie Details"></app-navbar>
+</ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content>
 
   <!-- Conditional guarantees content only renders once the data has arrived -->
   @if (movie) {
