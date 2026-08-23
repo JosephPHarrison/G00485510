@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+
+    <!-- Home button, oriented left -->
+    <ion-buttons slot="start">
+      <ion-button (click)="openHome()">
+        <ion-icon name="home"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <!-- Page title, supplied via @Input -->
+    <ion-title>{{ title }}</ion-title>
+
+    <!-- Favourites button, oriented right -->
+    <ion-buttons slot="end">
+      <ion-button (click)="openFavourites()">
+        <ion-icon name="heart"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>

@@ -5,14 +5,14 @@ import { IonContent, IonHeader, IonTitle, IonToolbar, IonButton, IonCard, IonCar
 import { Router } from '@angular/router';
 import { FavouritesService } from '../services/favourites.service';
 import { Movie } from '../models/movie.model';
-
+import { NavbarComponent } from '../components/navbar/navbar.component';
 
 @Component({
   selector: 'app-favourites',
   templateUrl: './favourites.page.html',
   styleUrls: ['./favourites.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButton, IonCard, IonCardHeader, IonCardTitle]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButton, IonCard, IonCardHeader, IonCardTitle, NavbarComponent]
 })
 export class FavouritesPage {
 

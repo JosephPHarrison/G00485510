@@ -1,21 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonButton, IonButtons, IonIcon } from '@ionic/angular/standalone';
+import { IonContent, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonButton } from '@ionic/angular/standalone';
 import { ActivatedRoute, Router, } from '@angular/router';
 import { MovieService } from '../services/movie.service';
-import { Movie } from '../models/movie.model';
 import { CastMember, CrewMember } from '../models/credits.model';
 import { FavouritesService } from '../services/favourites.service';
-import { addIcons } from 'ionicons';
-import { heart, home } from 'ionicons/icons';
+
+import { NavbarComponent } from '../components/navbar/navbar.component';
 
 @Component({
   selector: 'app-movie-details',
   templateUrl: './movie-details.page.html',
   styleUrls: ['./movie-details.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonButton, IonButtons, IonIcon]
+  imports: [IonContent,  CommonModule, FormsModule, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonButton, NavbarComponent]
 })
 export class MovieDetailsPage implements OnInit {
 
@@ -33,7 +32,6 @@ export class MovieDetailsPage implements OnInit {
 
   // ActivatedRoute reads the movie ID fro mthe URL, MovieServices fetches the data, Router navigates to other pages, FavouriteServe manages the favourites list
   constructor(private route: ActivatedRoute, private movieService: MovieService, private router: Router, private favouritesService: FavouritesService) {
-    addIcons({ home, heart });
   }
 
   ngOnInit() {
@@ -72,13 +70,4 @@ export class MovieDetailsPage implements OnInit {
     this.checkFavourites();
   }
 
-  // Opens the home page
-  openHome() {
-    this.router.navigate(['/home']);
-  }
-
-  // OPens the favourites page
-  openFavourites() {
-    this.router.navigate(['/favourites']);
-  }
 }
