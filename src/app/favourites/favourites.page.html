@@ -27,6 +27,9 @@
       <!-- Detials button, takes the user to the details page for selected movie-->
       <ion-button (click)="openMovie(movie.id)" expand="block">DETAILS</ion-button>
 
+      <!-- Remove button, deletes the movie from the favourites list -->
+      <ion-button (click)="removeFavourite(movie.id)" expand="block">REMOVE</ion-button>
+
     </ion-card>
     }
   </div>

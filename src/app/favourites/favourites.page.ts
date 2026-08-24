@@ -32,4 +32,10 @@ export class FavouritesPage {
     this.router.navigate(['/movie-details', id]);
   }
 
+  // Romoves a movie fro mthe favourites list before refreshing the list
+  async removeFavourite(id: number) {
+    await this.favouritesService.removeFavourite(id);
+    this.favourites = await this.favouritesService.getFavourites();
+  }
+
 }
