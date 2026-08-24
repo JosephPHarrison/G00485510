@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonCardHeader, IonCardTitle, IonCard, IonHeader } from '@ionic/angular/standalone';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MovieService } from '../services/movie.service';
+import { ApiService } from '../services/api.service';
 import { Movie } from '../models/movie.model';
 import { NavbarComponent } from '../components/navbar/navbar.component';
 
@@ -22,9 +22,10 @@ export class PersonDetailsPage implements OnInit {
   // The person's movie credits, reuses the Movie type.
   movies: Movie[] = [];
 
-  // ActivatedRoute reads the person's id from the URL, MovieService fetches the data
+  // ActivatedRoute reads the person's id from the URL, APIService fetches the data
   // Router navigates to a mvoie's details when one is selected.
-  constructor(private route: ActivatedRoute, private movieService: MovieService, private router: Router) { }
+  constructor(private route: ActivatedRoute, private apiService: ApiService, private router: Router) {
+  }
 
   ngOnInit() {
 
@@ -33,7 +34,7 @@ export class PersonDetailsPage implements OnInit {
 
     // If an id is found, fetches that person's details and their movie credits.
     if (id) {
-      this.movieService.getPersonDetails(id).subscribe((response: any) => {
+      this.apiService.getPersonDetails(id).subscribe((response: any) => {
         this.person = response;
         this.movies = response.movie_credits.cast;
       });

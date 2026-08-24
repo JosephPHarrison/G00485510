@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IonContent, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonSearchbar, IonButton, IonHeader } from '@ionic/angular/standalone';
-import { MovieService } from '../services/movie.service';
+import { ApiService } from '../services/api.service';
 import { Movie } from '../models/movie.model';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -23,8 +23,8 @@ export class HomePage implements OnInit {
   // The heading seen above the list of movies. Changes between trendign and search.
   heading: string = "Today's Trending Movies";
 
-  // MovieService injected so the page can request data
-  constructor(private movieService: MovieService, private router: Router) {
+  // ApiService injected so the page can request data, Router navigates to other pages
+  constructor(private apiService: ApiService, private router: Router) {
   }
 
   // Runs automatically when the page loads. Fetches initial data.
@@ -35,7 +35,7 @@ export class HomePage implements OnInit {
   // Retrieves the trending movies and stores the data once returned.
   loadTrending() {
     this.heading = "Today's Trending Movies";
-    this.movieService.getTrending().subscribe((response: any) => {
+    this.apiService.getTrending().subscribe((response: any) => {
       this.movies = response.results;
     });
   }
@@ -47,7 +47,7 @@ export class HomePage implements OnInit {
       this.loadTrending();
     } else {
       this.heading = this.searchTerm + ' Movies';
-      this.movieService.searchMovies(this.searchTerm).subscribe((response: any) => {
+      this.apiService.searchMovies(this.searchTerm).subscribe((response: any) => {
         this.movies = response.results;
       });
     }

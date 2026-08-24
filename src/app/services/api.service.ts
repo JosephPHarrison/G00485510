@@ -6,7 +6,7 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root',
 })
-export class MovieService {
+export class ApiService {
 
   // HttpClient injected here, allows the service to make web reqests to TMDB
   constructor(private http: HttpClient) { }

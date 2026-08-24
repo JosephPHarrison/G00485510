@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonButton, IonHeader } from '@ionic/angular/standalone';
 import { ActivatedRoute, Router, } from '@angular/router';
-import { MovieService } from '../services/movie.service';
+import { ApiService } from '../services/api.service';
 import { CastMember, CrewMember } from '../models/credits.model';
 import { FavouritesService } from '../services/favourites.service';
 
@@ -30,8 +30,8 @@ export class MovieDetailsPage implements OnInit {
   // Tracks whether the current movie is in the favourites list, controlling the button label
   isFavourited: boolean = false;
 
-  // ActivatedRoute reads the movie ID fro mthe URL, MovieServices fetches the data, Router navigates to other pages, FavouriteServe manages the favourites list
-  constructor(private route: ActivatedRoute, private movieService: MovieService, private router: Router, private favouritesService: FavouritesService) {
+  // ActivatedRoute reads the movie ID fro mthe URL, ApiService fetches the data, Router navigates to other pages, FavouriteServe manages the favourites list
+  constructor(private route: ActivatedRoute, private apiService: ApiService, private router: Router, private favouritesService: FavouritesService) {
   }
 
   ngOnInit() {
@@ -41,7 +41,7 @@ export class MovieDetailsPage implements OnInit {
 
     // If an ID is found, fetches the movie details including the cast and crew
     if (id) {
-      this.movieService.getMovieDetails(id).subscribe((response: any) => {
+      this.apiService.getMovieDetails(id).subscribe((response: any) => {
         this.movie = response;
         this.cast = response.credits.cast;
         this.crew = response.credits.crew;

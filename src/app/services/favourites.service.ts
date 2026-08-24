@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage-angular';
 import { Movie } from '../models/movie.model';
 
-
+// Marks the class as injectable so it can be accessed app-wide
 @Injectable({
   providedIn: 'root',
 })

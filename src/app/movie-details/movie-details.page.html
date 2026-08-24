@@ -29,6 +29,7 @@
 
     <ion-card button (click)="openPerson(member.id)">
 
+      <!-- SHows the photo associated with a specific cast member, otherwise shows 'No image' placeholder if none available -->
       @if (member.profile_path) {
       <img [src]="'https://image.tmdb.org/t/p/w185' + member.profile_path" [alt]="member.name" />
       } @else {
@@ -49,6 +50,7 @@
     }
   </div>
 
+  <!-- Crew section, mirrors cast section above -->
   <h2 class="section-heading">Crew</h2>
   <div class="card-grid">
     @for (member of crew; track member.id) {
