@@ -19,6 +19,7 @@ export class FavouritesPage {
   // Holds the favourites array, loaded each time the page opens
   favourites: Movie[] = [];
 
+  // FavouriteService loads and manages saved favourites, Router opens a movie's details upon selection
   constructor(private favouritesService: FavouritesService, private router: Router) { }
 
   // Runs each time the page is opened allowing for the list to refresh after each change

@@ -54,7 +54,12 @@
     @for (member of crew; track member.id) {
 
     <ion-card button (click)="openPerson(member.id)">
+
+      @if (member.profile_path) {
       <img [src]="'https://image.tmdb.org/t/p/w185' + member.profile_path" [alt]="member.name" />
+      } @else {
+      <p class="no-image">No image</p>
+      }
 
       <ion-card-header>
         <ion-card-title>

@@ -41,8 +41,9 @@ export class PersonDetailsPage implements OnInit {
 
   }
 
-openMovie(id: number) {
-  this.router.navigate(['/movie-details', id]);
-}
+  // Opens movie details page for the selected movie
+  openMovie(id: number) {
+    this.router.navigate(['/movie-details', id]);
+  }
 
 }
