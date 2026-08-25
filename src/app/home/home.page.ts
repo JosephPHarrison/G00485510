@@ -46,7 +46,7 @@ export class HomePage implements OnInit {
     if (this.searchTerm.trim() === '') {
       this.loadTrending();
     } else {
-      this.heading = this.searchTerm + ' Movies';
+      this.heading = 'Results';
       this.apiService.searchMovies(this.searchTerm).subscribe((response: any) => {
         this.movies = response.results;
       });
